@@ -1,0 +1,19 @@
+Hello everyone,
+I hope you all are doing well. I have just worked with the data for fetch rewards data, in particular the receipts, users 
+and brands data and was hoping to report my findings, possible issues and understand the data better. Firstly I will give a
+background of how I approached dealing with this data. Since the data was in zipped json files I used python to read, clean 
+and structure the data to a more user friendly format. Once the data was cleaned I ran some sanity checks for quality and 
+had a few comments/questions:
+1. 	I had the inclination to check if there are unique Users by ID in the User table and noticed that for the same user, 
+	last login time and created time there were multiple records. I was hoping to understand why this is the case.
+2.	There were a lot of receipts in the data that had brandcodes that did not exist in the brands data. This could be 
+	problematic when we aggregate by brands to come up with analysis.
+3.	I noticed that the 'brandCodes' are not numerical and my recommendation having worked with databases would be to have 
+	the foreign keys numerical to prevent small differences in the string creating problems when joining the data.
+4. 	A lot of the data is stored in embedded dictionaries(such as date scanned) that require an extra step of data 
+	wrangling. It might reduce the margin of error if we remove this but I would love to understand if this is required
+	in some way in the product implementation.
+
+I would love to discuss these points further and schedule a time to elaborate on these observation. 
+Best,
+Sid
